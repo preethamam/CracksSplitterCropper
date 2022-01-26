@@ -1,5 +1,5 @@
 # Introduction
-Cracks are the precursor of defects. Labeling the cracks is a tedious process. To augment the cracks with similar geometric properties, cracks can be splitted to tile images. In this program, the thinned cracks are traversed with certain overlap ratio between the adjacent tiles. This will ensure to produce the cracks with similar atrributes. Note that some cracs artifacts may show in the tiled images. 
+Cracks are the precursor of defects. Labeling the cracks is a tedious process. To augment the cracks with similar geometric properties, cracks can be split into tile images. In this program, the thinned cracks are traversed with a certain overlap ratio between the adjacent tiles. This will ensure to produce the cracks with similar attributes. Note that some cracks artifacts may show in the tiled images.
 
 # Sample images
 | Type | Images |
