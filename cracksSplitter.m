@@ -1,5 +1,5 @@
 function cracksSplitter(tileHeight, tileWidth, overlapRatio, ...
-                        difference_limit, binary_image, writeImage) 
+                        difference_limit, color_image, binary_image, writeImage) 
 %//%************************************************************************%
 %//%*                         Crack Splitter						       *%
 %//%*           Splits the cracks with/without overlap region              *%
@@ -50,12 +50,12 @@ hold on;
 for i = 1:length(strand_collection) 
     current_strand = strand_collection{i};
     start_point = current_strand.points(1,:);
-    create_bounding_box(start_point, image_rows, image_cols, writeImage, image_counter, ...
+    create_bounding_box(color_image, start_point, image_rows, image_cols, writeImage, image_counter, ...
                         tileWidth, tileHeight)
     end_point = current_strand.points(end,:);
     for point = 1:length(current_strand.points)
         if( current_strand.points(point,:) == end_point)
-            special_box_end_point(start_point,current_strand.points(point,:), image_rows, ...
+            special_box_end_point(color_image, start_point,current_strand.points(point,:), image_rows, ...
                 image_cols, writeImage, image_counter, tileWidth, tileHeight)
             break
         end
@@ -66,29 +66,28 @@ for i = 1:length(strand_collection)
             break
         end
         if((((tileWidth-l)*(tileHeight-w))-tileHeight*tileWidth*overlapRatio)<=difference_limit)
-            create_bounding_box(current_strand.points(point,:), image_rows, image_cols , ...
+            create_bounding_box(color_image, current_strand.points(point,:), image_rows, image_cols , ...
                 writeImage, image_counter, tileWidth, tileHeight)
             start_point = current_strand.points(point,:);
         end
     end
 end
-
 end
 
 %--------------------------------------------------------------------------------------------------
 % Auxillary functions
 %--------------------------------------------------------------------------------------------------
 % End point is already exists
-function special_box_end_point(start_point, point, image_rows, image_cols, writeImage, image_counter, tileWidth, tileHeight)
+function special_box_end_point(color_image, start_point, point, image_rows, image_cols, writeImage, image_counter, tileWidth, tileHeight)
     if((abs(start_point(2)-point(2)) < tileWidth/2) && (abs(start_point(1)-point(1)) < tileHeight/2))
         disp("need to create new box, end point is already included")
         return
     end
-    create_bounding_box(point, image_rows, image_cols, writeImage, image_counter, tileWidth, tileHeight)
+    create_bounding_box(color_image, point, image_rows, image_cols, writeImage, image_counter, tileWidth, tileHeight)
 end
 
 % Bounding box maker
-function create_bounding_box(point, image_rows, image_cols, writeImage, image_counter, tileWidth, tileHeight)
+function create_bounding_box(color_image, point, image_rows, image_cols, writeImage, image_counter, tileWidth, tileHeight)
     top_left  = [(point(1)-tileHeight/2) , (point(2)-tileWidth/2)];
     if(top_left(1)<0)
         top_left(1) = 0;

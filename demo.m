@@ -5,7 +5,7 @@
 %//%*                                                                      *%
 %//%*             Name: Preetham Manjunatha    		                       *%
 %//%*             Github link: https://github.com/preethamam               %*
-%//%*             Submission Date: --/--/2018                              *%
+%//%*             Submission Date: 01/26/2022                              *%
 %//%************************************************************************%
 %//%*             Viterbi School of Engineering,                           *%
 %//%*             Sonny Astani Dept. of Civil Engineering,                 *%
@@ -32,7 +32,8 @@ binary_image = imbinarize(grey_image);
 binary_image = bwmorph(binary_image,'thin',Inf);
 
 %% Split cracks and save
-cracksSplitter(tileHeight, tileWidth, overlapRatio, difference_limit, binary_image, writeImage)   
+cracksSplitter(tileHeight, tileWidth, overlapRatio, difference_limit, color_image, ...
+                binary_image, writeImage)   
 
 %% End
 %--------------------------------------------------------------------------
