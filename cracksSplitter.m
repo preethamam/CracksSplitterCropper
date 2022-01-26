@@ -15,16 +15,21 @@ function cracksSplitter(tileHeight, tileWidth, overlapRatio, ...
 %//%*             Los Angeles, California.                                 *%
 %//%************************************************************************%
 %
-%************************************************************************%
+%***************************************************************************%
 %
 % Usage: metrics  = multiclass_metrics_common(confmat)
-% Inputs: confmat  - confusion matrix -- N x N matrix
+% Inputs:   tileHeight          - Split tile height (pixels)
+%           tileWidth           - Split tile width (pixels)
+%           overlapRatio        - Overlap ratio between two adjacent tiles
+%                                 (0.0-1.0)
+%           difference_limit    - Difference between adjacent tile 
+%                                 (integer - usually kept 5 pixels)
+%           binary_image        - binary image (original)
+%           writeImage          - Save/write split/cropped images as .png
+%                                 (1 or 0 - on/off)
 % 
-% Outputs: metrics - metrics.Precision = Precision;
-%                    metrics.Recall = Recall;
-%                    metrics.Accuracy = Accuracy;
-%                    metrics.Specificity = Specificity;
-%                    metrics.F1score = F1score;
+% 
+% Outputs: Saved images / Bounding boxes image
 %
 % Authors: Preetham Manjunatha, Ph.D.
 %          Mohsin Sheikh
