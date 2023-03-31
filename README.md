@@ -13,3 +13,5 @@ MATLAB Image Processing Toolbox <br />
 
 # MATLAB Central
 [![View Cracks splitter and cropper to augment the crack dataset on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/105780-cracks-splitter-and-cropper-to-augment-the-crack-dataset)
+
+Please rate and provide feedback for the further improvements.
