@@ -11,7 +11,7 @@ Cracks are the precursor of defects. Labeling the cracks is a tedious process. T
 
 # Requirements
 MATLAB <br />
-MATLAB Image Processing Toolbox <br />
+Image Processing Toolbox <br />
 
 # Citation
 Crack splitter code for cropping the cracks to the dataset augmentation is available to the public. If you use this code in your research, please use the following BibTeX entry to cite:
